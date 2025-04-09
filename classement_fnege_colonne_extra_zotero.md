@@ -767,3 +767,4 @@ Zotero.alert(null, "FNEGE", `✅ ${count} article(s) modifié(s) dans la sélect
 5) rajouter la colonne Extra 
 ![image](https://github.com/user-attachments/assets/46d446c3-407b-4c59-a967-d256b4ba6509)
 
+Attention : il faut répéter cette action à chaque fois que vous voulez mettre à jour le classement FNEGE 2022 concernant vos articles. C'est manuel et non automatique.
