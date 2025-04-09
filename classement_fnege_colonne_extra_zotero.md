@@ -6,6 +6,7 @@
 
 ///// COMMENCER A COPIER APRES CETTE LIGNE /////
 
+<pre><code>
 // Script Zotero : Ajout du classement FNEGE 2022 dans Extra (corrigé pour '&')
 
 function normalize(text) {
@@ -772,7 +773,7 @@ const updateFNEGEInExtra = async () => {
 
 updateFNEGEInExtra();
 
-
+</code></pre>
 ///// ARRETER DE COPIER AVANT CETTE LIGNE /////
 
 4) cliquez sur Exécuter
