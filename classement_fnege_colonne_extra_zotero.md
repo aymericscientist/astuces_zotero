@@ -9,7 +9,7 @@
 const normalize = text => text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
   .replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim();
 
-// Exemple avec juste deux revues FNEGE (tu mettras tout le JSON complet après test)
+// Toutes les revues FNEGE 2022
 const fnegeRanking = {
   "grh": "3",
   "abacus": "2",
