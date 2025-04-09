@@ -2,6 +2,8 @@
 2) Cliquer sur outil --> développeur --> Run JavaScript
 3) copier tout le code suivant en dessous de code : 
 
+///// COMMENCER A COPIER APRES CETTE LIGNE /////
+
 const normalize = text => text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
   .replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim();
 
@@ -757,7 +759,9 @@ for (let item of selectedItems) {
 
 Zotero.alert(null, "FNEGE", `✅ ${count} article(s) modifié(s) dans la sélection`);
 
+///// ARRETER DE COPIER AVANT CETTE LIGNE /////
 
 4) cliquez sur Exécuter
 5) rajouter la colonne Extra 
+![image](https://github.com/user-attachments/assets/46d446c3-407b-4c59-a967-d256b4ba6509)
 
