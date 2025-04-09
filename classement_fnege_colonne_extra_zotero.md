@@ -6,10 +6,18 @@
 
 ///// COMMENCER A COPIER APRES CETTE LIGNE /////
 
-const normalize = text => text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-  .replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim();
+// Script Zotero : Ajout du classement FNEGE 2022 dans Extra (corrigé pour '&')
 
-// Toutes les revues FNEGE 2022
+function normalize(text) {
+  return text
+    .replace(/&/g, "et")  // remplace les esperluettes par "et"
+    .toLowerCase()
+    .normalize("NFD").replace(/[̀-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 const fnegeRanking = {
   "grh": "3",
   "abacus": "2",
@@ -731,35 +739,39 @@ const fnegeRanking = {
   "world development": "2"
 };
 
-// Récupérer les items actuellement sélectionnés
-const selectedItems = ZoteroPane.getSelectedItems();
+const updateFNEGEInExtra = async () => {
+  const selectedItems = ZoteroPane.getSelectedItems();
 
-let count = 0;
-for (let item of selectedItems) {
-  if (!item.isRegularItem()) continue;
+  let count = 0;
+  for (let item of selectedItems) {
+    if (!item.isRegularItem()) continue;
 
-  const journalRaw = item.getField("publicationTitle") || "";
-  const journalNorm = normalize(journalRaw);
+    const journalRaw = item.getField("publicationTitle") || "";
+    const journalNorm = normalize(journalRaw);
 
-  if (!journalNorm || !(journalNorm in fnegeRanking)) continue;
+    if (!journalNorm || !(journalNorm in fnegeRanking)) continue;
 
-  const ranking = fnegeRanking[journalNorm];
-  let extra = item.getField("extra") || "";
-  const fnegeLine = `FNEGE: ${ranking}`;
+    const ranking = fnegeRanking[journalNorm];
+    let extra = item.getField("extra") || "";
+    const fnegeLine = `FNEGE: ${ranking}`;
 
-  if (!extra.includes("FNEGE:")) {
-    extra = (extra + '\n' + fnegeLine).trim();
-  } else {
-    extra = extra.replace(/FNEGE:\s?.*/, fnegeLine);
+    if (!extra.includes("FNEGE:")) {
+      extra = (extra + '\n' + fnegeLine).trim();
+    } else {
+      extra = extra.replace(/FNEGE:\s?.*/, fnegeLine);
+    }
+
+    item.setField("extra", extra);
+    await item.saveTx();
+    console.log(`✔ ${journalRaw} → FNEGE: ${ranking}`);
+    count++;
   }
 
-  item.setField("extra", extra);
-  await item.saveTx();
-  console.log(`✔ ${journalRaw} → FNEGE: ${ranking}`);
-  count++;
-}
+  Zotero.alert(null, "FNEGE", `✅ ${count} article(s) modifié(s) dans la sélection`);
+};
 
-Zotero.alert(null, "FNEGE", `✅ ${count} article(s) modifié(s) dans la sélection`);
+updateFNEGEInExtra();
+
 
 ///// ARRETER DE COPIER AVANT CETTE LIGNE /////
 
