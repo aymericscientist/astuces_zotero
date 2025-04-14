@@ -740,7 +740,7 @@ const fnegeRanking = {
   "world development": "2"
 };
 
-const updateFNEGEInExtra = async () => {
+const updateFNEGEInArchiveLocation = async () => {
   const selectedItems = ZoteroPane.getSelectedItems();
 
   let count = 0;
@@ -753,7 +753,7 @@ const updateFNEGEInExtra = async () => {
     if (!journalNorm || !(journalNorm in fnegeRanking)) continue;
 
     const ranking = fnegeRanking[journalNorm];
-    let extra = item.getField("extra") || "";
+    let extra = item.getField("ArchiveLocation") || "";
     const fnegeLine = `FNEGE: ${ranking}`;
 
     if (!extra.includes("FNEGE:")) {
@@ -762,7 +762,7 @@ const updateFNEGEInExtra = async () => {
       extra = extra.replace(/FNEGE:\s?.*/, fnegeLine);
     }
 
-    item.setField("extra", extra);
+    item.setField("ArchiveLocation", currentValue);
     await item.saveTx();
     console.log(`✔ ${journalRaw} → FNEGE: ${ranking}`);
     count++;
@@ -771,13 +771,13 @@ const updateFNEGEInExtra = async () => {
   Zotero.alert(null, "FNEGE", `✅ ${count} article(s) modifié(s) dans la sélection`);
 };
 
-updateFNEGEInExtra();
+updateFNEGEInArchiveLocation();
 
 </code></pre>
 ///// ARRETER DE COPIER AVANT CETTE LIGNE /////
 
 4) cliquez sur Exécuter
-5) rajouter la colonne Extra
+5) rajouter la colonne Loc. in Archive
 
 ![image](https://github.com/user-attachments/assets/46d446c3-407b-4c59-a967-d256b4ba6509)
 
