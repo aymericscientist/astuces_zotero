@@ -7,7 +7,7 @@
 ///// COMMENCER A COPIER APRES CETTE LIGNE /////
 
 <pre><code>
-// Script Zotero : Ajout du classement FNEGE 2022 dans Extra (corrigé pour '&')
+// Script Zotero : Ajout du classement FNEGE 2022 dans archivelocation (corrigé pour '&')
 
 function normalize(text) {
   return text
@@ -740,7 +740,7 @@ const fnegeRanking = {
   "world development": "2"
 };
 
-const updateFNEGEInArchiveLocation = async () => {
+const updateFNEGEInarchivelocation = async () => {
   const selectedItems = ZoteroPane.getSelectedItems();
 
   let count = 0;
@@ -753,16 +753,16 @@ const updateFNEGEInArchiveLocation = async () => {
     if (!journalNorm || !(journalNorm in fnegeRanking)) continue;
 
     const ranking = fnegeRanking[journalNorm];
-    let extra = item.getField("ArchiveLocation") || "";
+    let archivelocation = item.getField("archivelocation") || "";
     const fnegeLine = `FNEGE: ${ranking}`;
 
-    if (!extra.includes("FNEGE:")) {
-      extra = (extra + '\n' + fnegeLine).trim();
+    if (!archivelocation.includes("FNEGE:")) {
+      archivelocation = (archivelocation + '\n' + fnegeLine).trim();
     } else {
-      extra = extra.replace(/FNEGE:\s?.*/, fnegeLine);
+      archivelocation = archivelocation.replace(/FNEGE:\s?.*/, fnegeLine);
     }
 
-    item.setField("ArchiveLocation", currentValue);
+    item.setField("archivelocation", currentValue);
     await item.saveTx();
     console.log(`✔ ${journalRaw} → FNEGE: ${ranking}`);
     count++;
