@@ -771,7 +771,7 @@ const updateFNEGEInarchivelocation = async () => {
   Zotero.alert(null, "FNEGE", `✅ ${count} article(s) modifié(s) dans la sélection`);
 };
 
-updateFNEGEInArchiveLocation();
+updateFNEGEInarchivelocation();
 
 </code></pre>
 ///// ARRETER DE COPIER AVANT CETTE LIGNE /////
