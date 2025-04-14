@@ -7,7 +7,7 @@
 ///// COMMENCER A COPIER APRES CETTE LIGNE /////
 
 <pre><code>
-// Script Zotero : Ajout du classement FNEGE 2022 dans archivelocation (corrigé pour '&')
+// Script Zotero : Ajout du classement FNEGE 2022 dans archiveLocation (corrigé pour '&')
 
 function normalize(text) {
   return text
@@ -740,7 +740,7 @@ const fnegeRanking = {
   "world development": "2"
 };
 
-const updateFNEGEInarchivelocation = async () => {
+const updateFNEGEInarchiveLocation = async () => {
   const selectedItems = ZoteroPane.getSelectedItems();
 
   let count = 0;
@@ -753,16 +753,16 @@ const updateFNEGEInarchivelocation = async () => {
     if (!journalNorm || !(journalNorm in fnegeRanking)) continue;
 
     const ranking = fnegeRanking[journalNorm];
-    let archivelocation = item.getField("archivelocation") || "";
+    let archiveLocation = item.getField("archiveLocation") || "";
     const fnegeLine = `FNEGE: ${ranking}`;
 
-    if (!archivelocation.includes("FNEGE:")) {
-      archivelocation = (archivelocation + '\n' + fnegeLine).trim();
+    if (!archiveLocation.includes("FNEGE:")) {
+      archiveLocation = (archiveLocation + '\n' + fnegeLine).trim();
     } else {
-      archivelocation = archivelocation.replace(/FNEGE:\s?.*/, fnegeLine);
+      archiveLocation = archiveLocation.replace(/FNEGE:\s?.*/, fnegeLine);
     }
 
-    item.setField("archivelocation", currentValue);
+    item.setField("archiveLocation", currentValue);
     await item.saveTx();
     console.log(`✔ ${journalRaw} → FNEGE: ${ranking}`);
     count++;
@@ -771,7 +771,7 @@ const updateFNEGEInarchivelocation = async () => {
   Zotero.alert(null, "FNEGE", `✅ ${count} article(s) modifié(s) dans la sélection`);
 };
 
-updateFNEGEInarchivelocation();
+updateFNEGEInarchiveLocation();
 
 </code></pre>
 ///// ARRETER DE COPIER AVANT CETTE LIGNE /////
