@@ -753,8 +753,19 @@ const updateFNEGEInarchiveLocation = async () => {
     if (!journalNorm || !(journalNorm in fnegeRanking)) continue;
 
     const ranking = fnegeRanking[journalNorm];
+
+      // Classement pour tri correct dans Zotero
+    let displayRanking;
+    if (ranking === "1*") displayRanking = "0.9 (1*)";
+    else if (ranking === "1") displayRanking = "1.0 (1)";
+    else if (ranking === "2") displayRanking = "2.0 (2)";
+    else if (ranking === "3") displayRanking = "3.0 (3)";
+    else if (ranking === "4") displayRanking = "4.0 (4)";
+    else displayRanking = ranking;
+
+    const fnegeLine = `FNEGE: ${displayRanking}`;
+
     let archiveLocation = item.getField("archiveLocation") || "";
-    const fnegeLine = `FNEGE: ${ranking}`;
 
     if (!archiveLocation.includes("FNEGE:")) {
       archiveLocation = (archiveLocation + '\n' + fnegeLine).trim();
@@ -762,9 +773,9 @@ const updateFNEGEInarchiveLocation = async () => {
       archiveLocation = archiveLocation.replace(/FNEGE:\s?.*/, fnegeLine);
     }
 
-    item.setField("archiveLocation", archiveLocation);
+    item.setField("archiveLocation", archiveLocation); // ⚠️ erreur ici corrigée
     await item.saveTx();
-    console.log(`✔ ${journalRaw} → FNEGE: ${ranking}`);
+    console.log(`✔ ${journalRaw} → ${fnegeLine}`);
     count++;
   }
 
