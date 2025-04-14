@@ -762,7 +762,7 @@ const updateFNEGEInarchiveLocation = async () => {
       archiveLocation = archiveLocation.replace(/FNEGE:\s?.*/, fnegeLine);
     }
 
-    item.setField("archiveLocation", currentValue);
+    item.setField("archiveLocation", archiveLocation);
     await item.saveTx();
     console.log(`✔ ${journalRaw} → FNEGE: ${ranking}`);
     count++;
