@@ -790,6 +790,7 @@ updateFNEGEInarchiveLocation();
 4) cliquez sur Exécuter
 5) rajouter la colonne Loc. in Archive
 
-![image](https://github.com/user-attachments/assets/46d446c3-407b-4c59-a967-d256b4ba6509)
+<img width="1850" height="207" alt="image" src="https://github.com/user-attachments/assets/c0602ddc-522c-434e-b02d-7a992f7fd5b4" />
+
 
 Attention : il faut répéter cette action à chaque fois que vous voulez mettre à jour le classement FNEGE 2022 concernant vos articles. C'est manuel et non automatique.
