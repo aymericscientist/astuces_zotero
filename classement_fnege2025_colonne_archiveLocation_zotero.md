@@ -2674,4 +2674,4 @@ run();
 <img width="1850" height="207" alt="image" src="https://github.com/user-attachments/assets/c0602ddc-522c-434e-b02d-7a992f7fd5b4" />
 
 
-Attention : il faut répéter cette action à chaque fois que vous voulez mettre à jour le classement FNEGE 2022 concernant vos articles. C'est manuel et non automatique.
+Attention : il faut répéter cette action à chaque fois que vous voulez mettre à jour le classement FNEGE 2025 concernant vos articles. C'est manuel et non automatique.
