@@ -2652,11 +2652,11 @@ const run = async () => {
     else if (title && FNEGE2025.byTitle[title]) rank = FNEGE2025.byTitle[title];
     else continue;
     const line = `FNEGE 2025: ${formatRank(rank)}`;
-    const cleaned = (item.getField("archiveLocation") || "")
+    const cleaned = (item.getField("extra") || "")
       .split(/\r?\n/)
       .filter(l => !/^FNEGE\b/i.test(l))
       .join("\n");
-    item.setField("archiveLocation", cleaned ? `${cleaned}\n${line}` : line);
+    item.setField("extra", cleaned ? `${cleaned}\n${line}` : line);
     await item.saveTx();
     count++;
   }
@@ -2669,7 +2669,7 @@ run();
 ///// ARRETER DE COPIER AVANT CETTE LIGNE /////
 
 4) cliquez sur Exécuter
-5) rajouter la colonne Loc. in Archive
+5) rajouter la colonne extra
 
 <img width="1850" height="207" alt="image" src="https://github.com/user-attachments/assets/c0602ddc-522c-434e-b02d-7a992f7fd5b4" />
 
