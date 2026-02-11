@@ -2675,3 +2675,57 @@ run();
 
 
 Attention : il faut répéter cette action à chaque fois que vous voulez mettre à jour le classement FNEGE 2025 concernant vos articles. C'est manuel et non automatique.
+
+Si jamais vous étiez sur la version précédente, voici le script permettant de supprimer tout ce qu'il y a dans le champ "loc dans l'archive" :
+
+///// COMMENCER A COPIER APRES CETTE LIGNE /////
+
+<pre><code>
+
+  (async () => {
+  try {
+    const zp = Zotero.getActiveZoteroPane();
+    if (!zp) {
+      Zotero.alert(null, "Nettoyage", "Impossible de trouver le ZoteroPane actif.");
+      return;
+    }
+
+    const items = zp.getSelectedItems();
+    if (!items || !items.length) {
+      Zotero.alert(null, "Nettoyage", "Aucun item selectionne.");
+      return;
+    }
+
+    let count = 0;
+    let skipped = 0;
+
+    for (const item of items) {
+      // On ne traite pas les pieces jointes / notes
+      if (!item || item.isAttachment?.() || item.isNote?.()) {
+        skipped++;
+        continue;
+      }
+
+      const before = item.getField("archiveLocation") || "";
+      if (before === "") {
+        // deja vide
+        continue;
+      }
+
+      item.setField("archiveLocation", "");
+      await item.saveTx();
+      count++;
+    }
+
+    Zotero.alert(
+      null,
+      "Nettoyage champ 'Loc. dans l'archive'",
+      `OK – ${count} items modifies (skips: ${skipped})`
+    );
+  } catch (e) {
+    Zotero.alert(null, "Erreur", String(e));
+  }
+})();
+
+</code></pre>
+///// ARRETER DE COPIER AVANT CETTE LIGNE /////  
