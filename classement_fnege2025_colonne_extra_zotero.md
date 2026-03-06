@@ -7,14 +7,12 @@
 
 3FR) Cliquer sur le petit <img width="54" height="73" alt="image" src="https://github.com/user-attachments/assets/ce0c7549-5f41-4929-82d9-99bbb2e21887" /> en haut gauche de la fenêtre ci-dessous
  :  
-3EN) 
-
-///// COMMENCER A COPIER APRES CETTE LIGNE /////
+3EN) Click on the small <img width="54" height="73" alt="image" src="https://github.com/user-attachments/assets/ce0c7549-5f41-4929-82d9-99bbb2e21887" /> in the top left corner of the window below:  
 
 <pre><code>
 
-  // ZOTERO – FNEGE 2025 EXHAUSTIF (892 revues)
-// Mapping ISSN prioritaire, fallback titre normalise
+// ZOTERO > release 8.x  – FULL FNEGE 2025 (892 revues)
+// Priority ISSN Mapping, fallback title 
 
 function normalize(text) {
   return (text || "")
@@ -2671,17 +2669,20 @@ const run = async () => {
 run();
 
 </code></pre>
-///// ARRETER DE COPIER AVANT CETTE LIGNE /////
 
-4) cliquez sur Exécuter
-5) rajouter la colonne extra
+4FR) cliquez sur Exécuter  
+4EN) click on Run  
 
-<img width="1850" height="207" alt="image" src="https://github.com/user-attachments/assets/c0602ddc-522c-434e-b02d-7a992f7fd5b4" />
+5FR) rajouter la colonne extra  
+5EN) add the extra column
 
+<img width="1818" height="507" alt="Capture d’écran 2026-03-05 202147" src="https://github.com/user-attachments/assets/daeb56c8-8385-4492-b386-5bb9be56894d" />
 
-Attention : il faut répéter cette action à chaque fois que vous voulez mettre à jour le classement FNEGE 2025 concernant vos articles. C'est manuel et non automatique.
+Attention : il faut répéter cette action à chaque fois que vous voulez mettre à jour le classement FNEGE 2025 concernant vos articles. C'est manuel et non automatique.  
+Important: This action must be repeated each time you want to update the FNEGE 2025 ranking for your articles. It is a manual process, not automatic.
 
-Si jamais vous étiez sur la version précédente, voici le script permettant de supprimer tout ce qu'il y a dans le champ "loc dans l'archive" :
+Si jamais vous étiez sur la version précédente, voici le script permettant de supprimer tout ce qu'il y a dans le champ "loc dans l'archive" :  
+If you were using the previous version, here is the script to delete everything in the "loc in archive" field:
 
 ///// COMMENCER A COPIER APRES CETTE LIGNE /////
 
