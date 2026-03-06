@@ -2663,7 +2663,7 @@ const run = async () => {
     await item.saveTx();
     count++;
   }
-  Zotero.alert(null, "FNEGE 2025", `OK – ${count} articles mis a jour`);
+  Zotero.alert(null, "FNEGE 2025", `OK – ${count} articles mis a jour / articles updated`);
 };
 
 run();
@@ -2684,7 +2684,8 @@ Important: This action must be repeated each time you want to update the FNEGE 2
 Si jamais vous étiez sur la version précédente, voici le script permettant de supprimer tout ce qu'il y a dans le champ "loc dans l'archive" :  
 If you were using the previous version, here is the script to delete everything in the "loc in archive" field:
 
-///// COMMENCER A COPIER APRES CETTE LIGNE /////
+3FR) Cliquer sur le petit <img width="54" height="73" alt="image" src="https://github.com/user-attachments/assets/ce0c7549-5f41-4929-82d9-99bbb2e21887" /> en haut gauche de la fenêtre ci-dessous :
+3EN) Click on the small <img width="54" height="73" alt="image" src="https://github.com/user-attachments/assets/ce0c7549-5f41-4929-82d9-99bbb2e21887" /> in the top left corner of the window below:
 
 <pre><code>
 
@@ -2692,13 +2693,13 @@ If you were using the previous version, here is the script to delete everything 
   try {
     const zp = Zotero.getActiveZoteroPane();
     if (!zp) {
-      Zotero.alert(null, "Nettoyage", "Impossible de trouver le ZoteroPane actif.");
+      Zotero.alert(null, "Nettoyage", "Impossible de trouver le ZoteroPane actif / Unable to find active ZoteroPane");
       return;
     }
 
     const items = zp.getSelectedItems();
     if (!items || !items.length) {
-      Zotero.alert(null, "Nettoyage", "Aucun item selectionne.");
+      Zotero.alert(null, "Nettoyage", "Aucun item selectionne / No items selected");
       return;
     }
 
@@ -2706,7 +2707,7 @@ If you were using the previous version, here is the script to delete everything 
     let skipped = 0;
 
     for (const item of items) {
-      // On ne traite pas les pieces jointes / notes
+      // We do not process attachments / notes
       if (!item || item.isAttachment?.() || item.isNote?.()) {
         skipped++;
         continue;
@@ -2734,4 +2735,3 @@ If you were using the previous version, here is the script to delete everything 
 })();
 
 </code></pre>
-///// ARRETER DE COPIER AVANT CETTE LIGNE /////  
