@@ -286,14 +286,5 @@
 4FR) cliquez sur Exécuter  
 4EN) click on Run  
 
-5FR) rajouter la colonne extra  
-5EN) add the extra column
-
-<img width="1818" height="507" alt="Capture d’écran 2026-03-05 202147" src="https://github.com/user-attachments/assets/daeb56c8-8385-4492-b386-5bb9be56894d" />
-
-Attention : il faut répéter cette action à chaque fois que vous voulez mettre à jour le classement FNEGE 2025 concernant vos articles. C'est manuel et non automatique.  
-Important: This action must be repeated each time you want to update the FNEGE 2025 ranking for your articles. It is a manual process, not automatic.
-
-Si jamais vous étiez sur la version précédente, voici le script permettant de supprimer tout ce qu'il y a dans le champ "loc dans l'archive" :  
-If you were using the previous version, here is the script to delete everything in the "loc in archive" field:
-
+5FR) Une fenetre avec l'emplacement du fichier CSV s'affiche
+5EN) A window displaying the location of the CSV file is shown
